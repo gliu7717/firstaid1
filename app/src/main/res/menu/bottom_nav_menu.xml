@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_flashcards"
+        android:icon="@drawable/flashcards"
+        android:title="@string/flashcards" />
+
+    <item
+        android:id="@+id/navigation_learn"
+        android:icon="@drawable/learn"
+        android:title="@string/learn" />
+
+    <item
+        android:id="@+id/navigation_test"
+        android:icon="@drawable/test"
+        android:title="@string/test" />
+    <item
+        android:id="@+id/navigation_game"
+        android:icon="@drawable/game"
+        android:title="@string/game" />
+
+</menu>

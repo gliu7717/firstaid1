@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_flashcards">
+
+    <fragment
+        android:id="@+id/navigation_flashcards"
+        android:name="com.derek.firstaidgame.ui.flashcards.FlashcardsFragment"
+        android:label="@string/flashcards"
+        tools:layout="@layout/fragment_flashcards" />
+
+    <fragment
+        android:id="@+id/navigation_learn"
+        android:name="com.derek.firstaidgame.ui.learn.LearnFragment"
+        android:label="@string/learn"
+        tools:layout="@layout/fragment_learn" />
+
+    <fragment
+        android:id="@+id/navigation_test"
+        android:name="com.derek.firstaidgame.ui.test.TestFragment"
+        android:label="@string/test"
+        tools:layout="@layout/fragment_test" />
+
+    <fragment
+        android:id="@+id/navigation_game"
+        android:name="com.derek.firstaidgame.ui.game.GameFragment"
+        android:label="@string/game"
+        tools:layout="@layout/fragment_game" />
+
+</navigation>
