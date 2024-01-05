@@ -8,6 +8,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.derek.firstaidgame.databinding.ActivityMainBinding
+import com.derek.firstaidgame.ui.learn.Dictionary
+import java.io.IOException
+import java.io.InputStream
+import java.util.Scanner
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        readCardTexts()
 
         val navView: BottomNavigationView = binding.navView
 
@@ -32,4 +37,24 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
+
+    private fun readCardTexts(){
+        // Declaring an input stream to read data
+        val myInputStream: InputStream
+        // Try to open the text file, reads
+        // the data and stores it in the string
+        try {
+            myInputStream = assets.open("qa.txt")
+            val scan = Scanner(myInputStream)
+            while(scan.hasNextLine()){
+                val question = scan.nextLine()
+                val answer = scan.nextLine()
+                Dictionary.dict.put(question, answer)
+            }
+        } catch (e: IOException) {
+            // Exception
+            e.printStackTrace()
+        }
+    }
+
 }
