@@ -44,6 +44,9 @@ class LearnFragment : Fragment() {
                 mSpeech.speak(str, TextToSpeech.QUEUE_FLUSH,null,null)
             }
         }
+        learnViewModel.question.observe(viewLifecycleOwner){
+            binding.tvQuestion.text = it
+        }
 
         binding.tvItem1.setOnClickListener {
             learnViewModel.selectLearnItem(binding.tvItem1)
@@ -67,6 +70,8 @@ class LearnFragment : Fragment() {
                         ResourcesCompat.getDrawable(resources, R.drawable.round_green_shape, null)
                     binding.btnConfirm.isEnabled = true
                     currentSelectedItem = item
+                    var str:String = item.tvItem.text.toString()
+                    mSpeech.speak(str, TextToSpeech.QUEUE_FLUSH,null,null)
                 }
                 else
                     item.tvItem.background = ResourcesCompat.getDrawable(resources, R.drawable.round_light_grey_shape,null)
