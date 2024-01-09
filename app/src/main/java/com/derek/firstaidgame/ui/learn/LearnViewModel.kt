@@ -1,5 +1,6 @@
 package com.derek.firstaidgame.ui.learn
 
+import android.util.Log
 import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -52,6 +53,7 @@ class LearnViewModel : ViewModel() {
     fun initLearnItems(binding: FragmentLearnBinding)
     {
         initSamples(20)
+        listItems.clear()
         var item1 = LearnItem(1, binding.tvItem1, binding.tvOne, false, R.drawable.round_light_grey_shape)
         listItems.add(item1)
         var item2 = LearnItem(2, binding.tvItem2, binding.tvTwo, false, R.drawable.round_light_grey_shape)

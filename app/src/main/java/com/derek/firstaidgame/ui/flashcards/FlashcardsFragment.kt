@@ -14,7 +14,8 @@ class FlashcardsFragment : Fragment() {
 
     private var _binding: FragmentFlashcardsBinding? = null
     lateinit var  flashcardsViewModel:FlashcardsViewModel
-    // lateinit var slideAdapter: SlideAdapter
+    lateinit var slideAdapter: SlideAdapter
+    /*
     private val slideAdapter = SlideAdapter(
         listOf(
             Slide(
@@ -34,6 +35,7 @@ class FlashcardsFragment : Fragment() {
             )
         )
     )
+     */
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -49,6 +51,10 @@ class FlashcardsFragment : Fragment() {
         _binding = FragmentFlashcardsBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
+        flashcardsViewModel.initSlides(20)
+
+        slideAdapter = SlideAdapter(flashcardsViewModel.listSlides)
+
         binding.viewPager.adapter = slideAdapter
         return root
     }

@@ -19,10 +19,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        readCardTexts()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        readCardTexts()
 
         val navView: BottomNavigationView = binding.navView
 
