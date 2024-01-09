@@ -79,9 +79,25 @@ class LearnFragment : Fragment() {
         }
 
         binding.btnConfirm.setOnClickListener {
-            confirm()
+            if(binding.btnConfirm.text.toString() == "Next"){
+                showNext()
+                binding.btnConfirm.text = "Confirm"
+            }
+            else {
+                confirm()
+                binding.btnConfirm.text = "Next"
+            }
         }
         return root
+    }
+
+    private fun showNext() {
+        learnViewModel.nextItem()
+        if(currentSelectedItem!=null){
+            currentSelectedItem!!.tvItemNum.text = currentSelectedItem!!.id.toString()
+            currentSelectedItem!!.tvItemNum.background =
+                ResourcesCompat.getDrawable(resources,R.drawable.round_grey_shape,null)
+        }
     }
 
     private fun confirm() {

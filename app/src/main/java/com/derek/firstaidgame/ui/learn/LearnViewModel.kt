@@ -51,14 +51,14 @@ class LearnViewModel : ViewModel() {
 
     fun initLearnItems(binding: FragmentLearnBinding)
     {
-        initSamples(4)
-        var item1 = LearnItem(binding.tvItem1, binding.tvOne, false, R.drawable.round_light_grey_shape)
+        initSamples(20)
+        var item1 = LearnItem(1, binding.tvItem1, binding.tvOne, false, R.drawable.round_light_grey_shape)
         listItems.add(item1)
-        var item2 = LearnItem(binding.tvItem2, binding.tvTwo, false, R.drawable.round_light_grey_shape)
+        var item2 = LearnItem(2, binding.tvItem2, binding.tvTwo, false, R.drawable.round_light_grey_shape)
         listItems.add(item2)
-        var item3 = LearnItem(binding.tvItem3, binding.tvThree, false, R.drawable.round_light_grey_shape)
+        var item3 = LearnItem(3,binding.tvItem3, binding.tvThree, false, R.drawable.round_light_grey_shape)
         listItems.add(item3)
-        var item4 = LearnItem(binding.tvItem4, binding.tvFour, false, R.drawable.round_light_grey_shape)
+        var item4 = LearnItem(4,binding.tvItem4, binding.tvFour, false, R.drawable.round_light_grey_shape)
         listItems.add(item4)
         //learnItems.postValue(listItems)
         updateCurrentItem()
@@ -77,5 +77,12 @@ class LearnViewModel : ViewModel() {
     fun judge(question:String, answer:String) : Boolean
     {
         return (Dictionary.dict.get(question) == answer)
+    }
+
+    fun nextItem() {
+        if( currentItemIndex < samples.size - 1) {
+            currentItemIndex++
+            updateCurrentItem()
+        }
     }
 }
